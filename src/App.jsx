@@ -21,8 +21,8 @@ export const App = () => {
   const [sortField, setSortField] = useState(null);
   const [isReversed, setIsReversed] = useState(false);
 
-  const getSortedGoods = (field, reverse) => {
-    const sortedGoods = [...initialGoods];
+  const getSortedGoods = (items, field, reverse) => {
+    const sortedGoods = [...items];
 
     if (field === 'alphabet') {
       sortedGoods.sort((a, b) => a.localeCompare(b));
@@ -38,14 +38,14 @@ export const App = () => {
   };
 
   const sortAlphabetically = () => {
-    const sortedGoods = getSortedGoods('alphabet', isReversed);
+    const sortedGoods = getSortedGoods(goods, 'alphabet', isReversed);
 
     setGoods(sortedGoods);
     setSortField('alphabet');
   };
 
   const sortByLength = () => {
-    const sortedGoods = getSortedGoods('length', isReversed);
+    const sortedGoods = getSortedGoods(goods, 'length', isReversed);
 
     setGoods(sortedGoods);
     setSortField('length');
